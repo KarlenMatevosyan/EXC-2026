@@ -9,6 +9,11 @@ void inputArray(int first[], int second[], int size) {
     }
 }
 
+void addInterval(int first[], int second[], int size) {
+    cout << "Enter new interval: ";
+    cin >> first[size] >> second[size];
+}
+
 void mergeIntervals(int first[], int second[], int size) {
     if (size <= 0) {
         return;
@@ -34,11 +39,12 @@ int main() {
     cin >> size;
 
 
-    int first[size];
-    int second[size];
+    int first[size + 1];
+    int second[size + 1];
 
     inputArray(first, second, size);
-    mergeIntervals(first, second, size);
+    addInterval(first, second, size);
+    mergeIntervals(first, second, size + 1);
 
     return 0;
 }
