@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
 #include <vector>
 
 using namespace std;
@@ -52,9 +53,14 @@ int main() {
     }
     file.close();
 
+    // Was taken from searching
+    sort(books.begin(), books.end(), [](const Book& a, const Book& b) {
+        return a.title < b.title;
+    });
+
     string command;
     while (true) {
-        cout << "\nEnter command (take, return, available, exit): ";
+        cout << "Enter command (take, return, available, exit): ";
         cin >> command;
 
         if (command == "exit") {
